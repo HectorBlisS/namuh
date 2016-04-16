@@ -1,0 +1,28 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>{%block titulo%}Namuh{%endblock titulo%}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/base.css'%}">
+</head>
+<body>
+	<div class="header">
+		<h1>Namuh</h1>
+		<p class="cart">
+			Tu carrito esta vacio.
+		</p>	
+	</div>
+
+	<div class="content">
+
+		{%block content%}
+		{%endblock content%}
+
+	</div>
+
+
+</body>
+</html>
