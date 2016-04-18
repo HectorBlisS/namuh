@@ -9,13 +9,21 @@
 	 <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
-	<link rel="stylesheet" type="text/css" href="{%static 'css/base.css'%}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{%static 'css/bliss.css'%}">
+  <link rel="icon" 
+      type="image/png" 
+      href="{%static 'logo.png'%}">
+
 
 </head>
 <body>
-	<nav class="white">
+	<nav class="gris">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo black-text">Namuh</a>
+      <a href="#" class="brand-logo black-text">
+        <img class="brand" src="{%static 'logo_nav.png'%}">
+      </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#!" class="black-text">
           {%with total_items=cart|length%}
@@ -25,7 +33,9 @@
             {{total_items}} Articulo{{total_items|pluralize}}, ${{cart.get_total_price}}
           </a>
           {%else%}
-          <span class="black-text">Tu carrito está vacio.</span>
+          <span class="grey-text">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+            <a class="grey-text" href="{%url 'shop:product_list'%}">Tu carrito está vacío.</a></span>
           {%endif%}
           {%endwith%}
         </a></li>
@@ -33,12 +43,71 @@
     </div>
   </nav>
 
-	<div class="content">
+	<div class="content main">
 
 		{%block content%}
 		{%endblock content%}
 
 	</div>
+
+
+
+<div class="gris">
+        <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+
+                <ul style="margin-top:0;">
+                  <li class="menu">Nosotros</li>
+                  <li class="menu">Espacio Arquitectonico</li>
+                  <li class="menu">Politicas</li>
+                  <li class="menu">Contacto</li>
+                  <li class="menu">Puntos de venta</li>
+                </ul>                
+              
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="row">
+            
+
+
+            <button class="col s12 m4">
+            <strong>Suscribete</strong><br>
+              Forma parte de nuestro news letter
+            </button>
+
+            <div class="col s12 m6 center">
+              <img style="width:40px;" src="{%static 'logo.png'%}">
+            </div>
+
+      <div class="social col s12 m2">
+            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </a>
+            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+              <i class="fa fa-pinterest-square" aria-hidden="true"></i>
+            </a>
+      </div>
+
+
+            </div>
+          </div>
+        </footer>
+</div>
+
+
+
+
+
+
+
 
 
 <!--Import jQuery before materialize.js-->

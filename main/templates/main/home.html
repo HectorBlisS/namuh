@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block titulo%}Inicio - NAMUH{%endblock titulo%}
+
+{%block content%}
+
+  <div class="slider">
+    <ul class="slides">
+      {%for img in imgs%}
+      <li>
+        <img src="{{img.img.url}}"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>{{img.name}}</h3>
+          <h5 class="light grey-text text-lighten-3"></h5>
+        </div>
+      </li>
+      {%endfor%}
+    </ul>
+
+    <div class="chevron">
+    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+
+    <div class="chevron2">
+    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+
+
+  </div>
+
+
+{%endblock content%}
+
+{%block scripts%}
+<script>
+$(document).ready(function(){
+      $('.slider').slider({full_width: true,height:600,indicators:false});
+      // Next slide
+    $('.chevron').on('click',function(){
+    	$('.slider').slider('next');
+    });
+
+    $('.chevron2').on('click',function(){
+    	$('.slider').slider('prev');
+    });
+	
+    });
+</script>
+
+{%endblock scripts%}
