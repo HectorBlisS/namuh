@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>{%block titulo%}Namuh{%endblock titulo%}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width">
+	 <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{%static 'css/base.css'%}">
+
+</head>
+<body>
+	<nav class="white">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo black-text">Namuh</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#!" class="black-text">
+          {%with total_items=cart|length%}
+          {%if cart|length > 0%}
+          Tu carrito:
+          <a class="black-text" href="{%url 'cart:cart_detail'%}">
+            {{total_items}} Articulo{{total_items|pluralize}}, ${{cart.get_total_price}}
+          </a>
+          {%else%}
+          <span class="black-text">Tu carrito está vacio.</span>
+          {%endif%}
+          {%endwith%}
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+	<div class="content">
+
+		{%block content%}
+		{%endblock content%}
+
+	</div>
+
+
+<!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+  <script>
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+ </script>
+
+  {%block scripts%}
+  {%endblock scripts%}
+</body>
+</html>

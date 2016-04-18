@@ -1,1 +1,38 @@
-detail.html
+{%extends 'base.html'%}
+{%load static%}
+
+{%block titulo%}
+{%if category%}{{category.title}}
+{%else%}
+Productos:
+{%endif%}
+{%endblock titulo%}
+
+{%block content%}
+
+<div class="detalles">
+
+<img src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
+<h2>{{product.name}}</h2>
+<h3>
+	<a href="{{product.category.get_absolute_url}}">
+		{{product.category}}
+	</a>
+</h3>
+<p class="price">
+
+	$ {{product.price}}
+
+</p>
+<form action="{%url 'cart:cart_add' product.id%}" method="post">
+	{%csrf_token%}
+	{{cart_product_form}}
+	<input class="btn wave-effect" type="submit" value="Agregar al carrito">
+</form>
+
+{{product.description|linebreaks}}
+
+
+</div>
+
+{%endblock%}

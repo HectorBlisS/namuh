@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block titulo%}Tu carrito de Compras{%endblock titulo%}
+
+{%block content%}
+<section class="container">
+
+
+<h1>Tu carrito de compras:</h1>
+<table>
+	<thead>
+	<tr class="green">
+		<th>Imagen</th>
+		<th>Producto</th>
+		<th>Cantidad</th>
+		<th>Quitar</th>
+		<th>Precio Unitario</th>
+		<th>Precio</th>
+	</tr>
+	</thead>
+	<tbody>
+		{%for item in cart%}
+		{%with product=item.product%}
+		<tr>
+			<td>
+				<a href="{{product.get_absolute_url}}">
+					<img style="max-width:50px;" class="responsive-img" src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
+				</a>
+			</td>
+			<td>
+				{{product.name}}
+			</td>
+			<td>
+				<form action="{%url 'cart:cart_add' product.id%}" method="post">
+					{{item.update_quantity_form.quantity}}
+					{{item.update_quantity_form.update}}
+					<input type="submit" value="Actualizar" class="btn green">
+					{%csrf_token%}
+				</form>
+			</td>
+			<td>
+				<a href="{%url 'cart:cart_remove' product.id%}"> Quitar </a>
+			</td>
+			<td class="num">
+				$ {{item.price}}
+			</td>
+			<td class="num">
+				$ {{item.total_price}}
+			</td>
+		</tr>
+		{%endwith%}
+		{%endfor%}
+		<tr class="blue">
+			<td>Total</td>
+			<td colspan='4'></td>
+			<td class="num">
+				$ {{cart.get_total_price}}
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p class="text-right">
+	<a href="{%url 'shop:product_list'%}" class="btn">
+		Continuar Comprando
+	</a>
+	<a class="btn" href="#!">
+		Pagar
+	</a>
+</p>
+
+</section>
+{%endblock content%}
+
+{%block scripts%}
+
+  {%endblock scripts%}
