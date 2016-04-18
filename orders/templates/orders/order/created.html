@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block titulo%}¡Gracias!{%endblock titulo%}
+
+{%block content%}
+<section class="container">
+<h1>¡Gracias!</h1>
+<p>Tu orden ha sido correctamente completada.<br>
+Tu número de orden es: <strong>{{order.id}}</strong></p>
+</section>
+
+{%endblock content%}

@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block titulo%}Terminar la compra{%endblock titulo%}
+
+{%block content%}
+<section class="container">
+
+<h1>Confirmar Compra</h1>
+
+<div class="order-info">
+
+	<h3>Tu orden:</h3>
+	<ul>
+		{%for item in cart%}
+		<li>
+			{{item.quantity}}x {{item.product.name}}
+			<span>$ {{item.total_price}}</span>
+		</li>
+		{%endfor%}
+	</ul>
+	<p>Total: $ {{cart.get_total_price}}</p>
+</div>
+
+<form action="." method='post' class="order-form">
+	{%csrf_token%}
+	{{form.as_p}}
+	<input class="btn waves-effect orange" type="submit" value="Finalizar Compra">
+</form>
+
+
+</section>
+
+{%endblock content%}

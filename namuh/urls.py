@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 from shop import urls as shopUrls
 from cart import urls as cartUrls
+from orders import urls as ordersUrls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -13,6 +14,8 @@ urlpatterns = [
     	include(shopUrls,namespace='shop')),
     url(r'^cart/',
     	include(cartUrls,namespace='cart')),
+    url(r'^orders/',
+    	include(ordersUrls,namespace='orders')),
 
 ]
 
