@@ -6,8 +6,8 @@
 	<title>{%block titulo%}Namuh{%endblock titulo%}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width:device-width">
-  {# <link rel="stylesheet" type="text/css" href="{%static 'css/custom.css'%}"> #}
-	 <!-- Compiled and minified CSS -->
+
+
    <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       
@@ -15,11 +15,18 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
+  {%block estilos%}
+  {%endblock estilos%}
 
 	<link rel="stylesheet" type="text/css" href="{%static 'css/bliss.css'%}">
   <link rel="icon" 
       type="image/png" 
       href="{%static 'logo.png'%}">
+
+
+
+
+
 
 
 </head>
@@ -66,11 +73,19 @@
               <div class="col s12 m12">
 
                 <ul style="margin-top:0;">
+                  <a href="{%url 'main:nosotros'%}">
                   <li class="menu">Nosotros</li>
+                  </a>
+                  <a href="{%url 'main:arch'%}">
                   <li class="menu">Espacio Arquitectonico</li>
+                </a>
+                  <a href="{%url 'main:policies'%}">
                   <li class="menu">Politicas</li>
+                </a>
                   <li class="menu">Contacto</li>
+                  <a href="{%url 'main:selling'%}">
                   <li class="menu">Puntos de venta</li>
+                  </a>
                 </ul>                
               
               </div>

@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block estilos%}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/custom.css'%}">
+{%endblock estilos%}
+
+{%block content%}      
+      <main class="row us-main-body" style="margin-bottom: 40px;">
+          <img class="bottom-img" src="{%static 'img/venta.jpg'%}" alt="">
+          <section class="product-detail-picture col-xs-12 col-sm-6 col-md-6">
+            <h4>PUNTOS DE <br> VENTA</h4>
+          </section>
+          <section class="product-detail-info col-xs-12 col-sm-6 col-md-6">
+            <article>
+              <h5>MATRIZ</h5>
+              <p>Camino a Alcocer km 2.2<br>
+              San Miguel de Allende, Gto Méx<br>
+              T(415)1548080 - CP 37760</p>
+
+              <h5>SHOWROOM CUNA QUINCE</h5>
+              <p>Cuna de Allende 15. Centro<br>
+              San Miguel de Allende, Gto Méx<br>
+              T(415)1530656 - CP 37700</p>
+
+              <h5>CASA PALACIO</h5>
+              <p>
+              ANTARA<br>
+              SANTA FÉ<br>
+              <br>
+              <br>
+              <br>
+              <h5>HORARIOS MATRIZ</h5>
+              <p style="background-color: #F3F3F3;">LUNES A VIERNES 9 AM A 6 PM, SÁBADO 10 AM A 6 PM, DOMINGO 11 AM A 4 PM</p>
+            </article>
+          </section>
+      </main>
+
+{%endblock content%}

@@ -1,17 +1,24 @@
 {%extends 'base.html'%}
 {%load static%}  
 
+{%block estilos%}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/custom.css'%}">
+{%endblock estilos%}
+
 {%block content%}    
       <main class="row us-main-body">
           <h3 style="text-align: center; color: grey;">Arquitectónico</h3>
           <section>
-              <img class="bottom-img" src="<%= image_url('namuh/DSC03715.jpg') %>" alt="">
+              <img class="bottom-img" src="{%static 'img/1.jpg'%}" alt="">
           </section>
           <section>
-              <img class="bottom-img" src="<%= image_url('namuh/DSC03723.jpg') %>" alt="">
+              <img class="bottom-img" src="{%static 'img/2.jpg'%}" alt="">
           </section>
           <section>
-              <img class="bottom-img" src="<%= image_url('namuh/DSC09517.jpg') %>" alt="">
+              <img class="bottom-img" src="{%static 'img/3.jpg'%}" alt="">
           </section>
           <section>
               <h4 style="color: grey;">PROYECTOS INTEGRALES</h4>

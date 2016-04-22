@@ -63,29 +63,7 @@ body, html {
     top: 20px;
     left: 60px;
 }
-/*.carousel-inner .item .image {
-    background-image: url(01_Namuh.jpg);
-    background-repeat: no-repeat;
-    background-position: right 0px center;
-    min-height: 100%;
-    width: 100%;
-    top: 0;
-    height: auto;
-    margin-top: -94px;
-    margin-bottom: -120px;
-    left: 0;
-}*/
-/*.first-img {
-    background: url("<%= image_url('namuh/01_Namuh.jpg') %>") no-repeat center center;
-    min-height: 100%;
-    width: 100%;
-    top: 0;
-    height: auto;
-    margin-top: -94px;
-    margin-bottom: -120px;
-    left: 0;
-}*/
-/*inicia shop template*/
+
 .row{
     max-width: 960px;
     margin: 0 auto;
@@ -131,13 +109,11 @@ body, html {
 
 /*termina shop template*/
 
-footer {
+/*footer {
     background-color: #f8f8f8;
     border: 1px solid #e7e7e7;
     width: 100%;
     min-height: 120px;
-    /*position: absolute; */
-    /* bottom: 0; */
     padding-bottom: 15px;
 }
 
@@ -168,7 +144,7 @@ footer button {
     border: 1px solid #B6B6B6;
     border-radius: 5px;
     color: #B6B6B6;
-}
+}*/
 /* Comienza product detail screen */
 
 .product-detail-picture {
@@ -206,9 +182,9 @@ footer button {
     background-color: white; 
 }
 
-.productDetail_footer {
+/*.productDetail_footer {
     position: absolute;
-}
+}*/
 .carousel-inner .item img.productDetail_img_carousel {
     height: 60vh;
 }

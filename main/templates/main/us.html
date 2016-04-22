@@ -1,5 +1,14 @@
 {%extends 'base.html'%}
-{%load static%}      
+{%load static%} 
+{%block titulo%}Nosotros{%endblock titulo%}
+{%block estilos%}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{%static 'css/custom.css'%}">
+{%endblock estilos%}
+
+{%block content%}     
      <main class="row us-main-body">
           <section class="product-detail-picture col-xs-12 col-sm-6 col-md-6">
             <h4>NOSOTROS</h4>
@@ -27,5 +36,7 @@
             <br>
             <P>NAMUH</P>
           </section>
-          <img class="bottom-img" src="<%= image_url('us-img.png') %>" alt="">
+          <img class="bottom-img" src="{%static 'img/us-img.png'%}" alt="">
       </main>
+
+{%endblock content%}
