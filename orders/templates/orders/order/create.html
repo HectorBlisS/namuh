@@ -4,30 +4,35 @@
 
 {%block content%}
 <section class="container">
+	<article class="row">
 
-<h1>Confirmar Compra</h1>
+<h4>Confirmar Compra</h4>
 
-<div class="order-info">
+<div class="order-info col m6">
 
-	<h3>Tu orden:</h3>
+	<h5>Tu orden:</h5>
 	<ul>
 		{%for item in cart%}
 		<li>
-			{{item.quantity}}x {{item.product.name}}
+			{{item.quantity}} X {{item.product.name}}
 			<span>$ {{item.total_price}}</span>
 		</li>
 		{%endfor%}
 	</ul>
-	<p>Total: $ {{cart.get_total_price}}</p>
+	<p class="grey lighten-2">Total: $ {{cart.get_total_price}}</p>
 </div>
+<div class="col m6">
+	<h5>Llena el formulario con tus datos:</h5>
 
 <form action="." method='post' class="order-form">
 	{%csrf_token%}
 	{{form.as_p}}
-	<input class="btn waves-effect orange" type="submit" value="Finalizar Compra">
+	<input class="btn waves-effect grey lighten-2 black-text" type="submit" value="Finalizar Compra">
 </form>
 
+</div>
 
+</article>
 </section>
 
 {%endblock content%}

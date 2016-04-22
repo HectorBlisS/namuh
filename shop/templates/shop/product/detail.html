@@ -9,30 +9,60 @@ Productos:
 {%endblock titulo%}
 
 {%block content%}
+<section class="container">
+<article class="row">
 
-<div class="detalles">
+<div class="col m8">
+ <img class="materialboxed" width="100%" src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
 
-<img src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
-<h2>{{product.name}}</h2>
-<h3>
-	<a href="{{product.category.get_absolute_url}}">
-		{{product.category}}
+</div>
+
+<div class="col m4">
+<h4>{{product.name}}</h4>
+  <div class="chip">
+  	<a href="{{product.category.get_absolute_url}}">
+	    {{product.category}}	
 	</a>
-</h3>
-<p class="price">
+	    {# <i class="material-icons">close</i> #}
+  </div>
+<p class="price black-text">
 
 	$ {{product.price}}
 
 </p>
+
 <form action="{%url 'cart:cart_add' product.id%}" method="post">
 	{%csrf_token%}
 	{{cart_product_form}}
-	<input class="btn wave-effect" type="submit" value="Agregar al carrito">
+	<input class="btn grey wave-effect" type="submit" value="Agregar al carrito">
 </form>
-
+<div class="space"></div>
+<h5>Descripción</h5>
+<div class="divider"></div>
+<p>
 {{product.description|linebreaks}}
+</p>
 
 
 </div>
 
+
+
+
+</article>
+
+
+
+</section>
+
+
+
 {%endblock%}
+
+{%block scripts%}
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
+{%endblock scripts%}

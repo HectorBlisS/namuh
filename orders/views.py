@@ -4,6 +4,8 @@ from .forms import OrderCreateForm
 from cart.cart import Cart
 from django.views.generic import View
 
+from .tasks import order_created
+
 
 
 class OrderCreate(View):
@@ -29,11 +31,23 @@ class OrderCreate(View):
 					quantity=item['quantity'])
 			# Borrar el carrito
 			cart.clear()
+			# Lanzamos la tarea asincrona
+			# order_created.delay(order.id)
+			# Mandamos email sin tarea asincrona
+			
 			template='orders/order/created.html'
 			context={
 			'order':order
 			}
 			return render(request,template,context)
-
+		else:
+			cart=Cart(request)
+			form=OrderCreateForm(request.POST)
+			template='orders/order/create.html'
+			context={
+			'cart':cart,
+			'form':form
+			}
+			return render(request,template,context)
 
 

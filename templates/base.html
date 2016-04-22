@@ -6,10 +6,15 @@
 	<title>{%block titulo%}Namuh{%endblock titulo%}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width:device-width">
+  {# <link rel="stylesheet" type="text/css" href="{%static 'css/custom.css'%}"> #}
 	 <!-- Compiled and minified CSS -->
+   <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 
 	<link rel="stylesheet" type="text/css" href="{%static 'css/bliss.css'%}">
   <link rel="icon" 
@@ -21,15 +26,17 @@
 <body>
 	<nav class="gris">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo black-text">
+      <a href="{%url 'main:home'%}" class="brand-logo black-text">
         <img class="brand" src="{%static 'logo_nav.png'%}">
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#!" class="black-text">
+        <li><a href="#!" class="grey-text">
           {%with total_items=cart|length%}
           {%if cart|length > 0%}
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+
           Tu carrito:
-          <a class="black-text" href="{%url 'cart:cart_detail'%}">
+          <a class="grey-text" href="{%url 'cart:cart_detail'%}">
             {{total_items}} Articulo{{total_items|pluralize}}, ${{cart.get_total_price}}
           </a>
           {%else%}
@@ -53,10 +60,10 @@
 
 
 <div class="gris">
-        <footer class="page-footer">
+        <footer id='footer' class="page-footer">
           <div class="container">
             <div class="row">
-              <div class="col s12">
+              <div class="col s12 m12">
 
                 <ul style="margin-top:0;">
                   <li class="menu">Nosotros</li>
@@ -75,23 +82,23 @@
             
 
 
-            <button class="col s12 m4">
+            <div class="boton col m4 s4">
             <strong>Suscribete</strong><br>
               Forma parte de nuestro news letter
-            </button>
+            </div>
 
-            <div class="col s12 m6 center">
+            <div class="col m5 s2 center">
               <img style="width:40px;" src="{%static 'logo.png'%}">
             </div>
 
-      <div class="social col s12 m2">
-            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+      <div class="social col m2 s5">
+            <a style="margin-right: 1rem;" class="grey-text" href="#!">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
-            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+            <a style="margin-right: 1rem;" class="grey-text" href="#!">
               <i class="fa fa-facebook-official" aria-hidden="true"></i>
             </a>
-            <a style="margin-right: 1rem;" class="grey-text right" href="#!">
+            <a style="margin-right: 1rem;" class="grey-text" href="#!">
               <i class="fa fa-pinterest-square" aria-hidden="true"></i>
             </a>
       </div>

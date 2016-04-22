@@ -1,3 +1,4 @@
+
 from decimal import Decimal
 from django.conf import settings
 from shop.models import Product
@@ -10,7 +11,7 @@ class Cart(object):
 		self.session = request.session
 		cart = self.session.get(settings.CART_SESSION_ID)
 		if not cart:
-			#Guardamos un carrito vacio en la sesión
+			#Guardamos un carrito vacio en la sesion
 			cart = self.session[settings.CART_SESSION_ID] = {}
 		self.cart = cart
 

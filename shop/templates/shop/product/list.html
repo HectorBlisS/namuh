@@ -8,32 +8,76 @@
 {%endblock titulo%}
 
 {%block content%}
-
-	<h3>Categorias:</h3>
+<section class="">
+	<article class="row">
+		<div class="col m3 categorias">
+<h5>Categorias:</h5>
 	<ul>
+		<a href="{%url 'shop:product_list'%}">
 		<li {%if not category%} class='selected'{%endif%}>
-			<a href="{%url 'shop:product_list'%}">
-				All</a></li>
+			
+				Todas</li></a>
 	{%for c in categories%}
+	<a href="{{c.get_absolute_url}}">
 	<li {%if category.slug == c.slug%} class='selected' {%endif%}>
-		<a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+		{{c.name}}
+<i class="fa fa-plus right" aria-hidden="true"></i>
+	</li>
+	</a>
 	{%endfor%}
 	</ul>
+</div> {# categorias #}
+
+	<div class="product-list col m9">
+
+		<span class="">
+				{%include 'pagination.html' with page=products%}
+			</span>
 
 
-	<div class="product-list">
-		<h1>{%if category%}{{category.name}}
-			{%else%}Productos{%endif%}</h1>
+
+		<h4>{%if category%}{{category.name}}
+			{%else%}Productos{%endif%}</h4>
+			<article class="row">
 			{%for product in products%}
-			<div class="item">
-				<a href="{{product.get_absolute_url}}">
-					<img src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
-				</a>
-				<a href="{{product.get_absolute_url}}">
-					{{product.name}}
-				</a>
+			
+			<div class="item col m4">
+
+
+<div class="card hoverable">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img style="width:229.872px;height:229.872px;" class="activator" src="{%if product.image%}{{product.image.url}}{%else%}{%static 'img/photo_not_available.png'%}{%endif%}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{product.name}}<i class="material-icons right">more_vert</i></span>
+      <p><a href="{{ product.get_absolute_url}}">${{product.price}}</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Descripción<i class="material-icons right">close</i></span>
+      <p>
+      	{{product.description}}
+      </p>
+    </div>
+  </div>
+			
 			</div>
 			{%endfor%}
+			</article>
+
+			<span class="">
+				{%include 'pagination.html' with page=products%}
+			</span>
+			
 	</div>
+
+
+
+</article>
+
+
+
+
+	
+</section>
 
 {%endblock content%}

@@ -5,9 +5,17 @@ min-height: 100vh;
 flex-direction: column;
 }
 
-main {
+.main {
 flex: 1 0 auto;
+margin-bottom: 4rem;
 }
+/*#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+   z-index: 12;
+}*/
 
 footer.page-footer {
 	background-color: #f8f8f8;
@@ -22,7 +30,8 @@ footer.page-footer .footer-copyright {
 	background-color: #f8f8f8;
 }
 
-footer button {
+footer .boton {
+	text-align: center;
     background-color: #F8F8F8;
     border: 0;
     min-height: 50px;
@@ -110,3 +119,48 @@ nav{
 .chevron2:hover{
 	color:white;
 }
+/*List.html*/
+
+.selected{
+	background-color:#f8f8f8;
+}
+.selected a{
+	color:black;
+	font-weight:  bold;
+}
+.categorias li{
+	padding: .5rem;
+	margin: 0;
+	border-bottom: 1px solid lightgrey;
+}
+.categorias li:hover{
+	border-bottom: 1px solid black;
+}
+.categorias a{
+	color:black;
+}
+
+/*Detail.html*/
+
+.divider{
+	border-bottom: 1px solid grey;
+	margin-bottom: 10px;
+}
+.space{
+	margin-bottom: 2rem;
+	margin-top:4rem;
+}
+
+    /* label focus color */
+    ul.select-dropdown li span {
+     color: black;
+    }
+
+/*ordenes*/
+
+.errorlist li{
+	background-color: grey;
+	color:yellow;
+	text-align: center;
+}
+ 

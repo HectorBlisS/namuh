@@ -140,3 +140,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 # Carrito de compras
 
 CART_SESSION_ID = 'cart'
+
+# Correo electronico
+EMAIL_HOST = 'smtpout.secureserver.net'
+# EMAIL_HOST='smtp.gmail.com'
+# EMAIL_PORT = '587'
+EMAIL_PORT='465'
+EMAIL_HOST_USER = 'contacto@fixter.org'
+# EMAIL_HOST_USER = 'tterrenofacil@gmail.com'
+EMAIL_HOST_PASSWORD = 'Poweroso77'
+# EMAIL_HOST_PASSWORD = 'Miguel741010'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL=False
