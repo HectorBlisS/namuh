@@ -167,7 +167,7 @@ DEFAULT_FROM_EMAIL=False
 PAYPAL_RECEIVER_EMAIL = 'rotcehcm@hotmail.com'
 PAYPAL_TEST = True
 
-# Añadimos la ruta para los archivos media de pillow
+# Anadimos la ruta para los archivos media de pillow
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL="/media/"
 
