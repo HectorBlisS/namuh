@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
@@ -34,12 +35,15 @@ class OrderCreate(View):
 			# Lanzamos la tarea asincrona
 			# order_created.delay(order.id)
 			# Mandamos email sin tarea asincrona
-			
-			template='orders/order/created.html'
-			context={
-			'order':order
-			}
-			return render(request,template,context)
+			# seteamos la orden en la sesion para paypal
+			request.session['order_id']=order.id
+			# redireccionamos hacia el cobro
+			return redirect(reverse('payment:process'))
+			# template='orders/order/created.html'
+			# context={
+			# 'order':order
+			# }
+			# return render(request,template,context)
 		else:
 			cart=Cart(request)
 			form=OrderCreateForm(request.POST)

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=!@9jl(2jc^%@_b*)-s6a-%5_y6w6wctibsv$an45=@4bb92ei'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'main',
+    'paypal.standard.ipn',
+    'payment',
     
     
 ]
@@ -72,6 +74,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Agregamos al contexto el Carrito
                 'cart.context_processors.cart',
+                # El media
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -89,6 +93,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -127,11 +135,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,"static"),)
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
@@ -153,3 +162,17 @@ EMAIL_HOST_PASSWORD = 'Poweroso77'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL=False
+
+# Django-paypal Configuracion
+PAYPAL_RECEIVER_EMAIL = 'rotcehcm@hotmail.com'
+PAYPAL_TEST = True
+
+# Añadimos la ruta para los archivos media de pillow
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+MEDIA_URL="/media/"
+
+
+
+
+
+
