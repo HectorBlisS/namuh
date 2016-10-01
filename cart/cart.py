@@ -30,6 +30,9 @@ class Cart(object):
 		self.save()
 
 	def save(self):
+		"""
+		Metodo para guardar el carrito
+		"""
 		# actualizamos el carrito de la seision
 		self.session[settings.CART_SESSION_ID] = self.cart
 		# marcamos la sesion como modificada para asegurarnos de que se ha guardad

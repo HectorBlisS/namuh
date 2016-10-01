@@ -147,7 +147,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 # Carrito de compras
-
 CART_SESSION_ID = 'cart'
 
 # Correo electronico
